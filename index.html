@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivian</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- element ui -->
+    <link rel="stylesheet" href="./element-plus/index.css">
+    <!-- aos -->
+    <link href="./other/aos.css" rel="stylesheet">
+    <!-- fontawasome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="app">
+        <div class="menu" :class="{ anchor: menuFix }" ref="menu">
+            <div class="logo">VI<span>VIAN</span></div>
+            <div class="gap"></div>
+            <ul>
+                <li v-for="(item, index) in menu" :key="index">
+                    <a :href="item.url" :class="{ menuActive: menuActive == item.name }" @click="changeMenu(item.name)">{{ item.name }}</a>
+                </li>
+            </ul>
+            <div class="toggle" :class="{ 'toggle-active': toggle }" @click="showSlideBar">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <ul class="slider-bar" :class="{ 'slider': toggle }">
+            <div v-show="toggle" class="toggle" :class="{ 'toggle-active': toggle }" @click="showSlideBar">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <li v-for="(item, index) in menu" :key="index">
+                <a :href="item.url" class="en" @click="showSlideBar">{{ item.name }}</a>
+            </li>
+        </ul>
+
+        <header id="header">
+            <img class="background" src="./image/小菁網站.png" alt="">
+            <div class="intro">
+                <h1>{{ obj.output }}</h1>
+                <p>{{ headerInfo.contentA }}</p>
+                <p>{{ headerInfo.contentB }}</p>
+            </div>
+            <img src="./image/04.png" alt="" class="img">
+        </header>
+
+        <main id="about">
+            <div class="about-image">
+                <img src="./image/05.png" alt="" class="img">
+            </div>
+            <div class="about-intro ch">
+                <div class="intro-info">
+                    <ul>
+                        <h1>ABOUT<span class="title"> 黃小菁</span></h1>
+                        <li class="title" v-for="(item, index) in aboutInfo" :key="index">{{ item.title }}:<span>{{
+                                item.content }}</span></li>
+                    </ul>
+                </div>
+                <div class="intro-progress">
+                    <div class="skill-progress">
+                        <div class="skill-title">電腦技能</div>
+                        <div class="progress" v-for="(item, index) in skill" :key="index">
+                            <p>{{ item.name }}</p>
+                            <el-progress :text-inside="true" :percentage="item.percent" />
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-title">語文能力</div>
+                        <div class="progress" v-for="(item, index) in lang" :key="index">
+                            <p>{{ item.name }}</p>
+                            <el-progress :text-inside="true" :percentage="item.percent" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <main id="experience">
+            <h1 class="title en">EXPERIENCE</h1>
+            <img class="exp-background" src="./image/01.png" alt="">
+            <el-carousel :interval="4000" type="card" height="450px">
+                <el-carousel-item 
+                    v-for="(item, index) in exp" 
+                    :key="index" 
+                    :style="{ 'background-image': 'url(' + item.background + ')' }">
+                >
+                    <div class="exp-text ch">
+                        <h1>{{ item.title }}</h1>
+                        <div>{{ item.subTitle }}</div>
+                        <ul v-for="(it, id) in item.exp" :key="id">
+                            <li class="exp-title">{{ it.title }}</li>
+                            <li class="exp-content" v-for="(t, d) in it.content" :key="d">{{ t }}</li>
+                        </ul>
+                    </div>
+                    <img :src="item.url" alt="" class="exp-img">
+                </el-carousel-item>
+            </el-carousel>
+        </main>
+
+        <main id="certificate">
+            <h1 class="title en">CERTIFICATE</h1>
+            <div class="certificate-show">
+                <i class="fas fa-angle-right" @click="goAhead"></i>
+                <i class="fas fa-angle-left" @click="stepBack"></i>
+                <img :src="certificateContent[currentIndex].url" alt="" class="show-img" :class="{ imgRotate: toggleCert }">
+            </div>
+            <ul class="certificate-link ch">
+                <li :class="{ active: currentIndex == index }" v-for="(item, index) in certificate" :key="index"
+                    @mouseover="changeIndex(index)" @mouseleave="toggleRotate">{{ item }}</li>
+            </ul>
+        </main>
+
+        <main id="autobiography">
+            <div class="autobiography-content" v-for="(item, index) in autobiography">
+                <h1>{{ item.title }}</h1>
+                <p class="content">{{ item.content }}</p>
+                <p class="exp">{{ item.exp }}</p>
+            </div>
+        </main>
+
+        <footer id="footer">
+
+        </footer>
+    </div>
+</body>
+
+<!-- vue3 -->
+<script src="./vue.global.js"></script>
+<!-- element ui -->
+<script src="./element-plus/index.full.js"></script>
+<!-- aos -->
+<script src="./other/aos.js"></script>
+<!-- easytype -->
+<script src="./other/easy-typer-min.js"></script>
+<!-- js -->
+<script src="./app.js"></script>
+<!-- init -->
+<script>
+    AOS.init();
+</script>
+
+</html>
