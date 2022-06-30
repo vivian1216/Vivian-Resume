@@ -61,21 +61,22 @@
             </div>
             <div class="about-intro ch">
                 <div class="intro-info">
-                    <ul>
+                    <ul data-aos="fade-right">
                         <h1>ABOUT<span class="title"> 黃小菁</span></h1>
                         <li class="title" v-for="(item, index) in aboutInfo" :key="index">{{ item.title }}:<span>{{
                                 item.content }}</span></li>
                     </ul>
                 </div>
                 <div class="intro-progress">
-                    <div class="skill-progress">
+                    <div class="skill-progress" data-aos="fade-right">
                         <div class="skill-title">電腦技能</div>
                         <div class="progress" v-for="(item, index) in skill" :key="index">
                             <p>{{ item.name }}</p>
                             <el-progress :text-inside="true" :percentage="item.percent" />
                         </div>
                     </div>
-                    <div class="skill-progress">
+                    <div class="skill-progress" data-aos="fade-right" data-aos-delay="500"
+                    >
                         <div class="skill-title">語文能力</div>
                         <div class="progress" v-for="(item, index) in lang" :key="index">
                             <p>{{ item.name }}</p>
@@ -94,7 +95,7 @@
                     v-for="(item, index) in exp" 
                     :key="index" 
                     :style="{ 'background-image': 'url(' + item.background + ')' }">
-                >
+                
                     <div class="exp-text ch">
                         <h1>{{ item.title }}</h1>
                         <div>{{ item.subTitle }}</div>
@@ -115,23 +116,27 @@
                 <i class="fas fa-angle-left" @click="stepBack"></i>
                 <img :src="certificateContent[currentIndex].url" alt="" class="show-img" :class="{ imgRotate: toggleCert }">
             </div>
-            <ul class="certificate-link ch">
+            <ul class="certificate-link ch" data-aos="zoom-in">
                 <li :class="{ active: currentIndex == index }" v-for="(item, index) in certificate" :key="index"
                     @mouseover="changeIndex(index)" @mouseleave="toggleRotate">{{ item }}</li>
             </ul>
         </main>
 
         <main id="autobiography">
-            <div class="autobiography-content" v-for="(item, index) in autobiography">
+            <div class="autobiography-content" v-for="(item, index) in autobiography" data-aos="flip-left">
                 <h1>{{ item.title }}</h1>
                 <p class="content">{{ item.content }}</p>
                 <p class="exp">{{ item.exp }}</p>
             </div>
+            <div class="rwd-autobiography-content" v-for="(item, index) in autobiography">
+                <img :src="item.img" alt="" class="rwd-img">
+                <div class="rwd-content" data-aos="flip-left">
+                    <h1>{{ item.title }}</h1>
+                    <div class="content">{{ item.content }}</div>
+                    <div class="exp">{{ item.exp }}</div>
+                </div>
+            </div>
         </main>
-
-        <footer id="footer">
-
-        </footer>
     </div>
 </body>
 

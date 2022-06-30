@@ -202,7 +202,7 @@ body {
 
 .slider-bar {
     position: fixed;
-    left: -10%;
+    left: -22%;
     width: 0%;
     height: 110vh;
     background-color: #f8b616;
@@ -215,7 +215,7 @@ body {
     .toggle {
         position: fixed;
         top: 1.6%;
-        right: 3%;
+        right: 4%;
         color: #fff;
         font-size: 2rem;
         span {
@@ -481,7 +481,7 @@ body {
             right: 7%;
         }
         &:nth-child(2) {
-            top: 24%;
+            top: 23%;
             left: 12%;
         }
         &:nth-child(3) {
@@ -492,10 +492,13 @@ body {
             top: 63%;
             left: 15%;
         }
-        &:last-child {
+        &:nth-child(5) {
             top: 82%;
             right: 13%;
         }
+    }
+    .rwd-autobiography-content {
+        display: none;
     }
 }
 
@@ -771,48 +774,38 @@ body {
         }
     }
     #autobiography {
-        height: 130vh;
+        background-image: none;
         .autobiography-content {
-            h1 {
-                font-size: 1.2rem;
+            display: none;
+        }
+        .rwd-autobiography-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            .rwd-img {
+                width: 100%;
             }
-            .content {
-                width: 330px;
-                font-size: 1rem;
-            }
-            .exp {
-                margin-top: 5px;
-                font-size: 1rem;
-                width: 330px;
-            }
-            &:first-child {
-                top: 5%;
-                right: 0%;
-            }
-            &:nth-child(2) {
-                top: 22%;
-                left: 12%;
-            }
-            &:nth-child(3) {
-                top: 42%;
-                right: 12%;
-            }
-            &:nth-child(4) {
-                top: 63%;
-                left: 12%;
-            }
-            &:last-child {
-                top: 80%;
-                right: 8%;
+            .rwd-content {
+                margin: 20px auto;
+                width: 80%;
+                h1 {
+                    text-align: center;
+                    color: #f8b616;
+                }
+                div {
+                    font-weight: 700;
+                    font-size: 1.5rem;
+                }
+                .exp {
+                    margin-top: 10px;
+                }
             }
         }
     }
 }
 
 @media (max-width: 540px) {
-    .menu {
-        display: none;
-    }
     #header {
         height: 70vh;
         .background {
@@ -833,6 +826,7 @@ body {
         }
     }
     #about {
+        width: 80%;
         padding: 0;
         .about-image {
             .img {
@@ -856,6 +850,46 @@ body {
             .exp-timeline {
                 width: 80%;
                 margin-top: 5%;
+            }
+        }
+        .exp-text {
+            margin-left: 6%;
+            h1 {
+                font-size: 1rem;
+            }
+            div {
+                font-size: .8rem;
+            }
+            .exp-title {
+                font-size: .8rem;
+            }
+            .exp-content {
+                font-size: .8rem;
+            }
+        }
+    }
+    #certificate {
+        .certificate-show {
+            position: relative;
+            width: 200px;
+            height: 350px;
+            background-color: #f8b616;
+        }
+    }
+    #autobiography {
+        background-image: none;
+        .autobiography-content {
+            display: none;
+        }
+        .rwd-autobiography-content {
+            .rwd-content {
+                h1 {
+                    font-size: 1.2rem;
+                }
+                div {
+                    font-weight: 700;
+                    font-size: 1rem;
+                }
             }
         }
     }
