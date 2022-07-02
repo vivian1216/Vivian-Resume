@@ -14,32 +14,30 @@
     <!-- aos -->
     <link href="./other/aos.css" rel="stylesheet">
     <!-- fontawasome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 </head>
 
 <body>
     <div id="app">
+        <div class="toggle" :class="{ 'toggle-active': toggle }" @click="showSlideBar">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
         <div class="menu" :class="{ anchor: menuFix }" ref="menu">
             <div class="logo">VI<span>VIAN</span></div>
             <div class="gap"></div>
             <ul>
                 <li v-for="(item, index) in menu" :key="index">
-                    <a :href="item.url" :class="{ menuActive: menuActive == item.name }" @click="changeMenu(item.name)">{{ item.name }}</a>
+                    <a :href="item.url" :class="{ menuActive: menuActive == item.name }"
+                        @click="changeMenu(item.name)">{{ item.name }}</a>
                 </li>
             </ul>
-            <div class="toggle" :class="{ 'toggle-active': toggle }" @click="showSlideBar">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
 
         <ul class="slider-bar" :class="{ 'slider': toggle }">
-            <div v-show="toggle" class="toggle" :class="{ 'toggle-active': toggle }" @click="showSlideBar">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
             <li v-for="(item, index) in menu" :key="index">
                 <a :href="item.url" class="en" @click="showSlideBar">{{ item.name }}</a>
             </li>
@@ -75,8 +73,7 @@
                             <el-progress :text-inside="true" :percentage="item.percent" />
                         </div>
                     </div>
-                    <div class="skill-progress" data-aos="fade-right" data-aos-delay="500"
-                    >
+                    <div class="skill-progress" data-aos="fade-right" data-aos-delay="500">
                         <div class="skill-title">語文能力</div>
                         <div class="progress" v-for="(item, index) in lang" :key="index">
                             <p>{{ item.name }}</p>
@@ -91,11 +88,9 @@
             <h1 class="title en">EXPERIENCE</h1>
             <img class="exp-background" src="./image/01.png" alt="">
             <el-carousel :interval="4000" type="card" height="450px">
-                <el-carousel-item 
-                    v-for="(item, index) in exp" 
-                    :key="index" 
+                <el-carousel-item v-for="(item, index) in exp" :key="index"
                     :style="{ 'background-image': 'url(' + item.background + ')' }">
-                
+
                     <div class="exp-text ch">
                         <h1>{{ item.title }}</h1>
                         <div>{{ item.subTitle }}</div>
@@ -114,7 +109,8 @@
             <div class="certificate-show">
                 <i class="fas fa-angle-right" @click="goAhead"></i>
                 <i class="fas fa-angle-left" @click="stepBack"></i>
-                <img :src="certificateContent[currentIndex].url" alt="" class="show-img" :class="{ imgRotate: toggleCert }">
+                <img :src="certificateContent[currentIndex].url" alt="" class="show-img"
+                    :class="{ imgRotate: toggleCert }">
             </div>
             <ul class="certificate-link ch" data-aos="zoom-in">
                 <li :class="{ active: currentIndex == index }" v-for="(item, index) in certificate" :key="index"

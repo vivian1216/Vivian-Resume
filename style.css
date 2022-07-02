@@ -106,7 +106,8 @@ body {
 }
 .toggle {
   visibility: hidden;
-  position: relative;
+  position: fixed;
+  right: 5%;
   cursor: pointer;
   width: 70px;
   height: 70px;
@@ -115,12 +116,13 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  z-index: 999;
 }
 .toggle span {
   position: absolute;
   width: 40px;
   height: 4px;
-  background-color: #f8b616;
+  background-color: #000;
   border-radius: 4px;
   transition: 0.3s;
 }
@@ -152,7 +154,7 @@ body {
 .menu {
   font-family: 'Rubik', sans-serif;
   position: absolute;
-  z-index: 999;
+  z-index: 500;
   display: flex;
   align-items: center;
   padding: 15px 30px;
@@ -226,26 +228,16 @@ body {
   left: -22%;
   width: 0%;
   height: 110vh;
-  background-color: #f8b616;
-  z-index: 999;
+  background-color: #fff;
+  z-index: 500;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   transition: 0.5s;
 }
-.slider-bar .toggle {
-  position: fixed;
-  top: 1.6%;
-  right: 4%;
-  color: #fff;
-  font-size: 2rem;
-}
-.slider-bar .toggle span {
-  background-color: #fff !important;
-}
 .slider-bar li a {
-  color: #fff;
+  color: #f8b616;
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -321,7 +313,7 @@ body {
   color: #fff;
   font-size: 5rem;
   letter-spacing: 5px;
-  z-index: 990;
+  z-index: 100;
   text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
 }
 #experience .exp-background {
@@ -401,7 +393,7 @@ body {
   color: #fff;
   font-size: 5rem;
   letter-spacing: 5px;
-  z-index: 990;
+  z-index: 100;
   text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
 }
 #certificate .certificate-show {
@@ -458,7 +450,7 @@ body {
   color: #f8b616;
   font-size: 5rem;
   letter-spacing: 5px;
-  z-index: 990;
+  z-index: 100;
   text-shadow: 6px 6px 0px rgba(255, 255, 255, 0.425);
 }
 #autobiography .autobiography-content {
@@ -827,5 +819,125 @@ body {
   #autobiography .rwd-autobiography-content .rwd-content div {
     font-weight: 700;
     font-size: 1rem;
+  }
+}
+@media (max-height: 420px) {
+  .toggle {
+    visibility: visible;
+    margin-right: 1%;
+  }
+  .menu {
+    justify-content: space-between;
+    width: 100%;
+  }
+  .menu .gap {
+    display: none;
+  }
+  .menu ul {
+    display: none;
+  }
+  #header .background {
+    width: 87%;
+  }
+  #header .img {
+    width: 30%;
+  }
+  #header .intro h1 {
+    font-size: 3rem;
+  }
+  #about .about-image .img {
+    position: relative;
+    width: 300px;
+    margin-bottom: 30px;
+  }
+  #about .about-intro .intro-progress .skill-progress .skill-title {
+    width: 120px;
+  }
+  #experience {
+    overflow: hidden;
+  }
+  #experience .title {
+    top: 29%;
+  }
+  #experience .exp-background {
+    height: 120%;
+  }
+  #experience .el-carousel--horizontal {
+    top: 80%;
+  }
+  #experience .el-carousel--horizontal .el-carousel__item {
+    height: 300px !important;
+  }
+  #experience .el-carousel--horizontal .el-carousel__item .exp-text {
+    margin-left: 6%;
+  }
+  #experience .el-carousel--horizontal .el-carousel__item .exp-text h1 {
+    font-size: 1.5rem;
+  }
+  #experience .el-carousel--horizontal .el-carousel__item .exp-text div {
+    font-size: 1.2rem;
+  }
+  #experience .el-carousel--horizontal .el-carousel__item .exp-text .exp-title {
+    font-size: 1.2rem;
+  }
+  #experience .el-carousel--horizontal .el-carousel__item .exp-text .exp-content {
+    font-size: 1rem;
+  }
+  #experience .el-carousel--horizontal .el-carousel__item .exp-img {
+    display: none;
+  }
+  #certificate {
+    margin-top: 15%;
+  }
+  #certificate .title {
+    top: -15%;
+  }
+  #certificate .certificate-show {
+    width: 250px;
+    height: 400px;
+  }
+  #certificate .certificate-link {
+    height: 400px;
+    width: 200px;
+  }
+  #certificate .certificate-link li {
+    text-align: center;
+  }
+  #autobiography {
+    height: 360vh;
+  }
+  #autobiography .autobiography-content {
+    width: 350px;
+  }
+  #autobiography .autobiography-content h1 {
+    font-size: 1.2rem;
+  }
+  #autobiography .autobiography-content .content {
+    font-size: 1rem;
+    width: 300px;
+  }
+  #autobiography .autobiography-content .exp {
+    font-size: 1rem;
+    width: 300px;
+  }
+  #autobiography .autobiography-content:first-child {
+    top: 8%;
+    right: 12%;
+  }
+  #autobiography .autobiography-content:nth-child(2) {
+    top: 23%;
+    left: 15%;
+  }
+  #autobiography .autobiography-content:nth-child(3) {
+    top: 44%;
+    right: 10%;
+  }
+  #autobiography .autobiography-content:nth-child(4) {
+    top: 64%;
+    left: 15%;
+  }
+  #autobiography .autobiography-content:nth-child(5) {
+    top: 83%;
+    right: 6%;
   }
 }

@@ -65,7 +65,8 @@ body {
 
 .toggle {
     visibility: hidden;
-    position: relative;
+    position: fixed;
+    right: 5%;
     cursor: pointer;
     width: 70px;
     height: 70px;
@@ -74,11 +75,12 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    z-index: 999;
     span {
       position: absolute;
       width: 40px;
       height: 4px;
-      background-color: #f8b616;
+      background-color: #000;
       border-radius: 4px;
       transition: .3s;
       &:first-child {
@@ -118,7 +120,7 @@ body {
 .menu {
     font-family: 'Rubik', sans-serif;
     position: absolute;
-    z-index: 999;
+    z-index: 500;
     display: flex;
     align-items: center;
     padding: 15px 30px;
@@ -205,26 +207,16 @@ body {
     left: -22%;
     width: 0%;
     height: 110vh;
-    background-color: #f8b616;
-    z-index: 999;
+    background-color: #fff;
+    z-index: 500;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     transition: .5s;
-    .toggle {
-        position: fixed;
-        top: 1.6%;
-        right: 4%;
-        color: #fff;
-        font-size: 2rem;
-        span {
-            background-color: #fff !important;
-        }
-    }
     li {
         a {
-            color: #fff;
+            color: #f8b616;
             font-size: 1.5rem;
             font-weight: 700;
         }
@@ -313,7 +305,7 @@ body {
         color: #fff;
         font-size: 5rem;
         letter-spacing: 5px;
-        z-index: 990;
+        z-index: 100;
         text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
     }
     .exp-background {
@@ -398,7 +390,7 @@ body {
         color: #fff;
         font-size: 5rem;
         letter-spacing: 5px;
-        z-index: 990;
+        z-index: 100;
         text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
     }
     .certificate-show {
@@ -456,7 +448,7 @@ body {
         color: #f8b616;
         font-size: 5rem;
         letter-spacing: 5px;
-        z-index: 990;
+        z-index: 100;
         text-shadow: 6px 6px 0px rgba(255, 255, 255, 0.425);
     }
     .autobiography-content {
@@ -894,3 +886,147 @@ body {
         }
     }
 }
+
+@media (max-height: 420px) {
+    .toggle {
+        visibility: visible;
+        margin-right: 1%;
+    }
+    .menu {
+        justify-content: space-between;
+        width: 100%;
+        .gap {
+            display: none;
+        }
+        ul {
+            display: none;
+        }
+    }
+
+    #header {
+        .background {
+            width: 87%;
+        }
+        .img {
+            width: 30%;
+        }
+        .intro {
+            h1 {
+                font-size: 3rem;
+            }
+        }
+    }
+
+    #about {
+        .about-image {
+            .img {
+                position: relative;
+                width: 300px;
+                margin-bottom: 30px;
+            }
+        }
+    
+        .about-intro {
+            .intro-progress {
+    
+                .skill-progress {
+                    .skill-title {
+                        width: 120px;
+                    }
+                }
+            }
+        }
+    }
+
+    #experience {
+        overflow: hidden;
+        .title {
+            top: 29%;
+        }
+        .exp-background {
+            height: 120%;
+        }
+        .el-carousel--horizontal {
+            top: 80%;
+    
+            .el-carousel__item {
+                height: 300px !important;
+                .exp-text {
+                    margin-left: 6%;
+                    h1 {
+                        font-size: 1.5rem;
+                    }
+                    div {
+                        font-size: 1.2rem;
+                    }
+                    .exp-title {
+                        font-size: 1.2rem;
+                    }
+                    .exp-content {
+                        font-size: 1rem;
+                    }
+                }
+    
+                .exp-img {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    #certificate {
+        margin-top: 15%;
+        .title {
+            top: -15%;
+        }
+        .certificate-show {
+            width: 250px;
+            height: 400px;
+        }
+        .certificate-link {
+            height: 400px;
+            width: 200px;
+            li {
+                text-align: center;
+            }
+        }
+    }
+
+    #autobiography {
+        height: 360vh;
+        .autobiography-content {
+            width: 350px;
+            h1 {
+                font-size: 1.2rem;
+            }
+            .content {
+                font-size: 1rem;
+                width: 300px;
+            }
+            .exp {
+                font-size: 1rem;
+                width: 300px;
+            }
+            &:first-child {
+                top: 8%;
+                right: 12%;
+            }
+            &:nth-child(2) {
+                top: 23%;
+                left: 15%;
+            }
+            &:nth-child(3) {
+                top: 44%;
+                right: 10%;
+            }
+            &:nth-child(4) {
+                top: 64%;
+                left: 15%;
+            }
+            &:nth-child(5) {
+                top: 83%;
+                right: 6%;
+            }
+        }
+    }
+}   
