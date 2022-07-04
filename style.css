@@ -294,7 +294,7 @@ body {
 }
 #about .about-intro .intro-progress .skill-progress .progress .el-progress .el-progress-bar__outer {
   height: 10px;
-  width: 280px;
+  width: 250px;
   background-color: #ffe7e7;
 }
 #about .about-intro .intro-progress .skill-progress .progress .el-progress .el-progress-bar__outer .el-progress-bar__inner {
@@ -645,7 +645,7 @@ body {
     right: 10%;
   }
 }
-@media (max-width: 844px) {
+@media (max-width: 844px) and (min-height: 424px) {
   .toggle {
     visibility: visible;
     margin-right: 1%;
@@ -939,5 +939,63 @@ body {
   #autobiography .autobiography-content:nth-child(5) {
     top: 83%;
     right: 6%;
+  }
+}
+@media (max-height: 375px) {
+  .active {
+    font-size: 1.2rem !important;
+  }
+  #header .img {
+    width: 30%;
+  }
+  #header .intro h1 {
+    font-size: 2.5rem;
+  }
+  #header .intro p {
+    font-size: 1rem;
+  }
+  #about .about-intro .intro-progress {
+    justify-content: center;
+  }
+  #certificate .certificate-show {
+    width: 200px;
+    height: 350px;
+  }
+  #autobiography {
+    height: 310vh;
+  }
+  #autobiography .autobiography-content {
+    width: 350px;
+  }
+  #autobiography .autobiography-content h1 {
+    font-size: 1rem;
+  }
+  #autobiography .autobiography-content .content {
+    font-size: .8rem;
+    width: 250px;
+  }
+  #autobiography .autobiography-content .exp {
+    font-size: .8rem;
+    width: 250px;
+  }
+  #autobiography .autobiography-content:first-child {
+    top: 8%;
+    right: -2%;
+  }
+  #autobiography .autobiography-content:nth-child(2) {
+    top: 21%;
+    left: 15%;
+  }
+  #autobiography .autobiography-content:nth-child(3) {
+    top: 42%;
+    right: 0%;
+  }
+  #autobiography .autobiography-content:nth-child(4) {
+    top: 61%;
+    left: 18%;
+  }
+  #autobiography .autobiography-content:nth-child(5) {
+    top: 80%;
+    right: -3%;
   }
 }
