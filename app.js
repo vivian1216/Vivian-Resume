@@ -145,15 +145,14 @@ const app = Vue.createApp({
             this.toggle = !this.toggle;
         },
         stepBack() {
-            console.log(this.currentIndex);
-            this.currentIndex--;
-            if (this.currentIndex <= 0) {
+            if (this.currentIndex == 0) {
                 this.currentIndex = this.certificateContent.length;
             }
+            this.currentIndex--;
         },
         goAhead() {
-            this.currentIndex++;
-            if (this.currentIndex > this.certificateContent.length) {
+            ++this.currentIndex;
+            if (this.currentIndex == this.certificateContent.length) {
                 this.currentIndex = 0;
             }
         }
